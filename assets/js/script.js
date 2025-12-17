@@ -154,10 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const images = [
       'assets/images/IMG_7576.JPG',
       'assets/images/IMG_7609.JPG',
-      'assets/images/IMG_7667.JPG',
-      'assets/images/IMG_7668.JPG',
       'assets/images/IMG_7717 (1).JPG',
-      'assets/images/IMG_7750.JPG',
       'assets/images/IMG_7806.JPG',
       'assets/images/IMG_8420.JPEG',
       'assets/images/Maceo McBryde-2 (3).jpg',

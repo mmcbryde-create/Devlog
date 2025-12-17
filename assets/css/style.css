@@ -245,17 +245,23 @@ h3 {
 
 .hero-image {
   position: relative;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  margin: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+  /* Centered glow */
+  overflow: hidden;
+  justify-self: center;
+  align-self: center;
 }
 
 .hero-image img {
   width: 100%;
-  max-width: 400px;
-  border-radius: 2px;
-  box-shadow: 20px 20px 0 rgba(212, 175, 55, 0.1);
-  /* Gold Offset Frame */
+  height: 100%;
+  object-fit: cover;
   filter: grayscale(20%) contrast(110%);
-  /* Refined look */
-  border: 1px solid var(--border-color);
 }
 
 /* Sections Global */
@@ -828,6 +834,8 @@ a>.content-card:hover::after {
   font-size: 0.85rem;
   letter-spacing: 2px;
 }
+
+
 
 /* Slideshow Styles */
 .slideshow-container {
