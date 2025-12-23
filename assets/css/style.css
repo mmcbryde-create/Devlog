@@ -183,6 +183,7 @@ h3 {
   font-weight: 700;
   background: var(--primary-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -785,11 +786,21 @@ a>.content-card:hover::after {
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
-/* About Section Redesign */
-.about-grid {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
+/* Specific overwrite for Resume Link (Arrow Inline with Text) */
+a.resume-link>.content-card::after {
+  content: none !important;
+}
+
+a.resume-link .content-card h3::after {
+  content: ' ↗';
+  font-size: 1.2rem;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+a.resume-link:hover h3::after {
+  transform: translate(3px, -3px);
+  opacity: 1;
 }
 
 .about-text {
@@ -811,6 +822,72 @@ a>.content-card:hover::after {
   width: 60px;
   height: 2px;
   background: var(--primary-gradient);
+}
+
+
+.hero-small {
+  min-height: 40vh;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+/* Utility Classes for Cleanup */
+.text-center {
+  text-align: center;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.max-w-800 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.list-disc {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.slideshow-small {
+  width: 150px;
+  height: 150px;
+  margin: 2rem auto 0 auto;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+/* Enhancing Resume Link Specificity without Overkill */
+a.resume-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Ensure the arrow is definitely inline */
+a.resume-link .content-card h3 {
+  display: inline-block;
 }
 
 .about-text p {
@@ -858,4 +935,17 @@ a>.content-card:hover::after {
 
 .slide.active {
   opacity: 1;
+}
+
+/* Resume Link Specifics */
+.resume-link>.content-card::after {
+  right: auto;
+  /* Reset right */
+  left: 1.5rem;
+  /* Move to left */
+}
+
+/* Adjust hover animation for left-side arrow */
+.resume-link>.content-card:hover::after {
+  transform: translate(-3px, -3px);
 }

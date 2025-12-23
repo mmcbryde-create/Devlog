@@ -167,7 +167,7 @@
   <div style="border-top: 1px solid var(--border-color); width: 80%; margin: 6rem auto 0 auto; opacity: 0.5;"></div>
 
   <!-- Quick Links & Skills Section -->
-  <section class="profile-summary" style="border-top: none; margin-top: 0; padding-top: 4rem;">
+  <section class="profile-summary pt-20" style="border-top: none; margin-top: 0;">
     <div class="container">
       <div class="summary-grid">
         <div class="summary-col">
@@ -178,6 +178,7 @@
             </li>
             <li><a href="https://github.com/mmcbryde-create" target="_blank">GitHub Profile ↗</a></li>
             <li><a href="mailto:Maceomc1@gmail.com">Email Me ↗</a></li>
+            <li><a href="Maceo_McBryde_Resume.pdf" target="_blank">Resume ↗</a></li>
           </ul>
         </div>
 
@@ -228,35 +229,8 @@
     </div>
   </footer>
   <div class="cursor"></div>
-  <script>
-    const cursor = document.querySelector(".cursor");
-
-    document.addEventListener("mousemove", (e) => {
-      cursor.style.left = e.clientX + "px";
-      cursor.style.top = e.clientY + "px";
-    });
-  </script>
 
   <script src="assets/js/script.js"></script>
-  <script>
-    document.addEventListener("mousemove", function (e) {
-      createSparkle(e.pageX, e.pageY);
-    });
-
-    function createSparkle(x, y) {
-      const sparkle = document.createElement("div");
-      sparkle.className = "sparkle";
-      sparkle.style.left = x + "px";
-      sparkle.style.top = y + "px";
-
-      document.body.appendChild(sparkle);
-
-      // Remove after animation
-      setTimeout(() => {
-        sparkle.remove();
-      }, 600);
-    }
-  </script>
 
 </body>
 

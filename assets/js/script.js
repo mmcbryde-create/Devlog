@@ -147,6 +147,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Custom Cursor Logic ---
+  const cursor = document.querySelector(".cursor");
+  if (cursor) {
+    document.addEventListener("mousemove", (e) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
+    });
+  }
+
+  // --- Sparkle Effect Logic ---
+  function createSparkle(x, y) {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = x + "px";
+    sparkle.style.top = y + "px";
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => {
+      sparkle.remove();
+    }, 600);
+  }
+
+  document.addEventListener("mousemove", function (e) {
+    // Throttle sparkles slightly for performance if needed, or keep simple
+    createSparkle(e.pageX, e.pageY);
+  });
+
+  // --- Tab Navigation Logic (Achievements Page) ---
+  const tabs = document.querySelectorAll('.achievement-tab');
+  if (tabs.length > 0) {
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function () {
+        const category = this.getAttribute('data-category');
+
+        // Remove active class from all tabs
+        document.querySelectorAll('.achievement-tab').forEach(t => t.classList.remove('active'));
+
+        // Remove active class from all sections
+        document.querySelectorAll('.achievement-section').forEach(section => section.classList.remove('active'));
+
+        // Add active class to clicked tab
+        this.classList.add('active');
+
+        // Add active class to corresponding section
+        const targetSection = document.getElementById(category + '-content');
+        if (targetSection) {
+          targetSection.classList.add('active');
+        }
+      });
+    });
+  }
+
   // Hero Slideshow Logic (Supports Multiple Instances)
   const slideshowContainers = document.querySelectorAll('.slideshow-container');
 
@@ -155,10 +207,13 @@ document.addEventListener('DOMContentLoaded', () => {
       'assets/images/IMG_7576.JPG',
       'assets/images/IMG_7609.JPG',
       'assets/images/IMG_7717 (1).JPG',
-      'assets/images/IMG_7806.JPG',
       'assets/images/IMG_8420.JPEG',
       'assets/images/Maceo McBryde-2 (3).jpg',
-      'assets/images/Firstheadshot.jpeg'
+      'assets/images/Firstheadshot.jpeg',
+      'assets/images/IMG_7628.png',
+      'assets/images/IMG_7750.JPG',
+      'assets/images/pic.jpg',
+      'assets/images/IMG_7583 (1).png'
     ];
 
     slideshowContainers.forEach(container => {
@@ -175,11 +230,13 @@ document.addEventListener('DOMContentLoaded', () => {
       let currentSlide = 0;
       const slides = container.querySelectorAll('.slide');
 
-      setInterval(() => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      }, 4000);
+      if (slides.length > 0) {
+        setInterval(() => {
+          slides[currentSlide].classList.remove('active');
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add('active');
+        }, 4000);
+      }
     });
   }
 });
